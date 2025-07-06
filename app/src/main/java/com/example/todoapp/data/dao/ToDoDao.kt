@@ -9,7 +9,7 @@ import com.example.todoapp.data.model.Todo
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface ToDODao {
+interface ToDoDao {
     //real time update in UI
     @Query("SELECT * FROM todos ORDER BY dueData ASC")
     fun getAllTodos():Flow<List<Todo>>

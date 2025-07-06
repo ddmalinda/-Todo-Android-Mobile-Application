@@ -36,7 +36,8 @@ class LoginActivity:AppCompatActivity() {
                         finish()
                     }else{
                         Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT).show()
-                    }                }
+                    }
+                }
             }
         }
     }

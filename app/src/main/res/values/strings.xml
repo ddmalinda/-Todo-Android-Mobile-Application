@@ -3,4 +3,9 @@
     <string name="todo_title">Todo Title</string>
     <string name="sample_description">This is a sample description.</string>
     <string name="due_date_label">Due: 2025-12-31</string>
+    <string name="add_new_task">Add new task</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="due_date_yyyy_mm_dd">Due Date (YYYY-MM-DD)</string>
+    <string name="save">Save</string>
 </resources>

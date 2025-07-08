@@ -26,7 +26,7 @@
             android:name=".ui.view.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.MainActivity"
+            android:name=".ui.view.ToDoList"
             android:exported="false" />
         <activity
             android:name=".ui.view.AddEditTodoActivity"

@@ -1,5 +1,6 @@
 package com.example.todoapp.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,10 +25,12 @@ class RegisterActivity :AppCompatActivity() {
 
             if (username.isNotEmpty() && password.isNotEmpty()) {
                 lifecycleScope.launch {
-                    //check if user already exists
+
                     if(db.userDao().getUser(username)==null){
                         db.userDao().insert(User(username = username, password = password))
                         Toast.makeText(this@RegisterActivity, "Registration successful", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@RegisterActivity, LoginActivity::class.java) )
+                        finish()
                     }else{
                         Toast.makeText(this@RegisterActivity, "Username already taken", Toast.LENGTH_SHORT).show()
                     }

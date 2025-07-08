@@ -10,6 +10,10 @@ import com.example.todoapp.databinding.ActivityAddEditTodoBinding
 import kotlinx.coroutines.launch
 
 class AddEditTodoActivity :AppCompatActivity(){
+    companion object {
+        const val USERID = "com.example.todoapp.USERID"
+    }
+
     private lateinit var binding: ActivityAddEditTodoBinding
     private val db by lazy {AppDatabase.getDataBase(this)}
 
@@ -27,7 +31,8 @@ class AddEditTodoActivity :AppCompatActivity(){
                 return@setOnClickListener
             }
             lifecycleScope.launch {
-                val newTodo = Todo(title = title, description = description, dueData = dueDate)
+                val userId: Int = intent.getIntExtra(ToDoList.USERID, -1)
+                val newTodo = Todo(userId = userId, title = title, description = description, dueDate = dueDate)
                 db.todoDao().insert(newTodo)
                 finish()
             }

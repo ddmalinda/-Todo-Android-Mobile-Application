@@ -24,7 +24,7 @@ class TodoAdapter : ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallba
         fun bind(todo: Todo) {
             binding.textViewTitle.text = todo.title
             binding.textViewDescription.text = todo.description
-            binding.textViewDueDate.text = "Due: ${todo.dueData}"
+            binding.textViewDueDate.text = "Due: ${todo.dueDate}"
         }
     }
 

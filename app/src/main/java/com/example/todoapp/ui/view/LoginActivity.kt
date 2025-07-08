@@ -23,14 +23,15 @@ class LoginActivity:AppCompatActivity() {
             val password=binding.editTextPassword.text.toString().trim()
 
 
-            if(username.isEmpty()&&password.isEmpty()){
+            if(username.isEmpty() && password.isEmpty()){
                 binding.editTextUsername.error="Username is required"
                 binding.editTextPassword.error="Password is required"
             }else{
                 lifecycleScope.launch {
                     val user = db.userDao().getUser(username)
                     if(user != null && user.password == password) {
-                        val intent =Intent(this@LoginActivity, AddEditTodoActivity::class.java)
+                        val intent =Intent(this@LoginActivity, ToDoList::class.java)
+                        intent.putExtra(ToDoList.USERID, user.id)
                         startActivity(intent)
                         finish()
                     }else{
@@ -38,6 +39,11 @@ class LoginActivity:AppCompatActivity() {
                     }
                 }
             }
+        }
+        binding.textViewRegister.setOnClickListener {
+            val intent=Intent(this,RegisterActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }
